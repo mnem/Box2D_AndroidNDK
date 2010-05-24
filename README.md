@@ -1,4 +1,4 @@
-Another port of the [Box2D][] physics engine to Android.
+Another port of the [Box2D][] physics engine to [Android][].
 
 Rather than converting [Box2D][] to Java, this port uses the [Android NDK][] to compile the (almost) unaltered [Box2D][] C code, and then provides a JNI wrapper around it for use in normal Android applications.
 
@@ -46,5 +46,6 @@ In the meantime, why not have some ASCII art?
 [ASCII Art Source][]
 
 [Box2D]: http://box2d.org/
+[Android]: http://www.android.com/
 [Android NDK]: http://developer.android.com/sdk/ndk/index.html
 [ASCII Art Source]: http://www.geocities.com/SoHo/7373/celestal.htm
