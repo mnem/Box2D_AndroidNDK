@@ -1,4 +1,6 @@
-package com.noiseandheat.android.ndkbox2d;
+package noiseandheat.android.ndkbox2d;
+
+import noiseandheat.android.ndkbox2d.R;
 
 import android.app.Activity;
 import android.os.Bundle;
