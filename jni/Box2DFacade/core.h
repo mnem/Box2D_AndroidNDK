@@ -20,15 +20,16 @@
  * THE SOFTWARE.
  */
 
-#ifndef COM_NOISEANDHEAT_BOX2D_BOX2D_H
-#define COM_NOISEANDHEAT_BOX2D_BOX2D_H
+#ifndef CORE_H
+#define CORE_H
 
 #include <jni.h>
+#include <android/log.h>
 
-extern "C"
-{
-    JNIEXPORT void JNICALL Java_com_noiseandheat_box2d_Box2D_init(JNIEnv * env, jobject obj);
-    JNIEXPORT void JNICALL Java_com_noiseandheat_box2d_Box2D_step(JNIEnv * env, jobject obj);
-};
+extern JavaVM *GetJavaVM();
 
-#endif // COM_NOISEANDHEAT_BOX2D_BOX2D_H
+#define  LOG_TAG    "box2dlib"
+#define  LOGI(...)  __android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__)
+#define  LOGE(...)  __android_log_print(ANDROID_LOG_ERROR,LOG_TAG,__VA_ARGS__)
+
+#endif // CORE_H

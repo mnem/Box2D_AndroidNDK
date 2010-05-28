@@ -20,10 +20,12 @@
  * THE SOFTWARE.
  */
 
-#include "com_noiseandheat_box2d_Box2D.h"
+#include "core.h"
 #include "Box2D.h"
+#include "com_noiseandheat_box2d_Box2D.h"
 
 static b2World* world = NULL;
+static b2Body* body = NULL;
 
 JNIEXPORT void JNICALL Java_com_noiseandheat_box2d_Box2D_init(JNIEnv * env, jobject obj)
 {
@@ -41,7 +43,7 @@ JNIEXPORT void JNICALL Java_com_noiseandheat_box2d_Box2D_init(JNIEnv * env, jobj
         b2Body* groundBody = world->CreateBody(&groundBodyDef);
         b2PolygonShape groundBox;
         groundBox.SetAsBox(50.0f, 10.0f);
-        groundBody->CreateFixture(&groundBox);
+        groundBody->CreateFixture(&groundBox, 0);
     }
 
     // Create body
@@ -49,7 +51,7 @@ JNIEXPORT void JNICALL Java_com_noiseandheat_box2d_Box2D_init(JNIEnv * env, jobj
         b2BodyDef bodyDef;
         bodyDef.type = b2_dynamicBody;
         bodyDef.position.Set(0.0f, 4.0f);
-        b2Body* body = world->CreateBody(&bodyDef);
+        body = world->CreateBody(&bodyDef);
         b2PolygonShape dynamicBox;
         dynamicBox.SetAsBox(1.0f, 1.0f);
         b2FixtureDef fixtureDef;
@@ -60,7 +62,7 @@ JNIEXPORT void JNICALL Java_com_noiseandheat_box2d_Box2D_init(JNIEnv * env, jobj
     }
 }
 
-JNIEXPORT void JNICALL Java_com_noiseandheat_box2d_Box2D_init(JNIEnv * env, jobject obj)
+JNIEXPORT void JNICALL Java_com_noiseandheat_box2d_Box2D_step(JNIEnv * env, jobject obj)
 {
     float32 timeStep = 1.0f / 60.0f;
     int32 velocityIterations = 6;

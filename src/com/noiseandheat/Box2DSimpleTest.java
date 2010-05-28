@@ -22,9 +22,10 @@
 
 package com.noiseandheat;
 
-import com.noiseandheat.R;
 import android.app.Activity;
 import android.os.Bundle;
+
+import com.noiseandheat.box2d.Box2D;
 
 public class Box2DSimpleTest extends Activity
 {
@@ -35,5 +36,12 @@ public class Box2DSimpleTest extends Activity
         // TODO: Foo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
+        Box2D b2d = new Box2D();
+        b2d.init();
+        for(int i = 0; i < 60; i++)
+        {
+            b2d.step();
+        }
     }
 }

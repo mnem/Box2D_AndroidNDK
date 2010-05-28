@@ -20,15 +20,22 @@
  * THE SOFTWARE.
  */
 
-#ifndef COM_NOISEANDHEAT_BOX2D_BOX2D_H
-#define COM_NOISEANDHEAT_BOX2D_BOX2D_H
+#include <stdlib.h>
+#include "core.h"
 
-#include <jni.h>
+static JavaVM *cached_jvm;
 
-extern "C"
+JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *jvm, void *reserved)
 {
-    JNIEXPORT void JNICALL Java_com_noiseandheat_box2d_Box2D_init(JNIEnv * env, jobject obj);
-    JNIEXPORT void JNICALL Java_com_noiseandheat_box2d_Box2D_step(JNIEnv * env, jobject obj);
-};
+    cached_jvm = jvm;
+}
 
-#endif // COM_NOISEANDHEAT_BOX2D_BOX2D_H
+JNIEXPORT void JNICALL JNI_OnUnload(JavaVM *jvm, void *reserved)
+{
+    cached_jvm = NULL;
+}
+
+JavaVM *GetJavaVM()
+{
+    return cached_jvm;
+}
