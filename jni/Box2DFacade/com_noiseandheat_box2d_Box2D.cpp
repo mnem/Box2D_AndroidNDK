@@ -74,7 +74,7 @@ JNIEXPORT void JNICALL Java_com_noiseandheat_box2d_Box2D_step(JNIEnv * env, jobj
     b2Vec2 position = body->GetPosition();
     float32 angle = body->GetAngle();
 
-    LOGI("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
+    LOGI("%4.2f %4.2f %4.2f happysmiley\n", position.x, position.y, angle);
 }
 
 // TODO: Don't forget to add a destroy function so world can be deleted

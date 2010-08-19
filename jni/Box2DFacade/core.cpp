@@ -28,6 +28,8 @@ static JavaVM *cached_jvm;
 JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *jvm, void *reserved)
 {
     cached_jvm = jvm;
+    
+    return JNI_VERSION_1_6;
 }
 
 JNIEXPORT void JNICALL JNI_OnUnload(JavaVM *jvm, void *reserved)
